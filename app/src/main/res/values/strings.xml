@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Texas Fusion</string>
+    <string name="title_home">Truck</string>
+    <string name="title_menu">Menu</string>
+    <string name="title_order">Order</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_cart">Cart</string>
+    <string name="string_empty" />
+    <string name="defaultTime">00:00 -M</string>
+    <string name="dash">-</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+</resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "313912901575",
+    "firebase_url": "https://cnsproject-229dc.firebaseio.com",
+    "project_id": "cnsproject-229dc",
+    "storage_bucket": "cnsproject-229dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313912901575:android:03f4e2878ff64183c463e2",
+        "android_client_info": {
+          "package_name": "com.example.texasfusion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313912901575-6tr05e4jt9hkdmkkac4mcho3tcvgi9ni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.texasfusion",
+            "certificate_hash": "397e86fcbfb7daf0ed195023b892b060b062f8cf"
+          }
+        },
+        {
+          "client_id": "313912901575-0102r8dglui2ncp859vdp2u2uvqb831i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbRbLpFJx5ETT8p2BjXkF-SfSnvovw9-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313912901575-0102r8dglui2ncp859vdp2u2uvqb831i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

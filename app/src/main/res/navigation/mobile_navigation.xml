@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.texasfusionpublic.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_loginFragment"
+            app:destination="@id/navigation_login" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_menu"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_order"
+            app:destination="@id/navigation_order" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="com.example.texasfusionpublic.ui.menu.MenuFragment"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_navigation_menu_to_loginFragment"
+            app:destination="@id/navigation_login" />
+        <action
+            android:id="@+id/action_navigation_menu_to_navigation_item"
+            app:destination="@id/navigation_item" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_order"
+        android:name="com.example.texasfusionpublic.ui.order.OrderFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_order" >
+        <action
+            android:id="@+id/action_navigation_order_to_loginFragment"
+            app:destination="@id/navigation_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.example.texasfusionpublic.ui.login.LoginFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_login_menu"
+            app:destination="@id/navigation_login_menu" />
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_login_menu"
+        android:name="com.example.texasfusionpublic.ui.login.LoginMenuFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_login_menu">
+        <action
+            android:id="@+id/action_navigation_login_menu_to_opHoursFragment"
+            app:destination="@id/navigation_hours" />
+        <action
+            android:id="@+id/action_navigation_login_menu_to_navigation_location"
+            app:destination="@id/navigation_location" />
+        <action
+            android:id="@+id/action_navigation_login_menu_to_navigation_tickets"
+            app:destination="@id/navigation_tickets" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_hours"
+        android:name="com.example.texasfusionpublic.ui.info.HoursFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_hours">
+        <action
+            android:id="@+id/action_navigation_hours_to_navigation_login_menu"
+            app:destination="@id/navigation_login_menu"
+            app:popUpTo="@id/navigation_login_menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_location"
+        android:name="com.example.texasfusionpublic.ui.info.LocationFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_location">
+        <action
+            android:id="@+id/action_navigation_location_to_navigation_login_menu"
+            app:destination="@id/navigation_login_menu"
+            app:popUpTo="@id/navigation_login_menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_tickets"
+        android:name="com.example.texasfusionpublic.ui.ticket.TicketFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_tickets">
+        <action
+            android:id="@+id/action_navigation_tickets_to_navigation_login_menu"
+            app:destination="@id/navigation_login_menu"
+            app:popUpTo="@id/navigation_login_menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_item"
+        android:name="com.example.texasfusionpublic.ui.menu.itemdetail.ItemDetailFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_placeholder_to_navigation_order"
+            app:destination="@id/navigation_order" />
+        <action
+            android:id="@+id/action_navigation_item_to_navigation_menu"
+            app:destination="@id/navigation_menu"
+            app:popUpTo="@id/navigation_menu" />
+    </fragment>
+
+</navigation>
