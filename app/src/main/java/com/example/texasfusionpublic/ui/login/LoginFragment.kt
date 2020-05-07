@@ -1,3 +1,9 @@
+/**
+ * LoginFragment.kt
+ *
+ * Handles UI fuctionalities and connection to bindings and view models.
+ * Authenticates the user after a username and password is entered.
+ **/
 package com.example.texasfusionpublic.ui.login
 
 import android.os.Bundle
@@ -38,6 +44,8 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
 
+        // Check that a username and password is entered.
+        // Use Firebase Authentication service to authenticate user.
         binding.btnLogin.setOnClickListener{
             if(!binding.username.text.isNullOrEmpty() && !binding.password.text.isNullOrEmpty()){
                 auth.signInWithEmailAndPassword(binding.username.text.toString(), binding.password.text.toString())

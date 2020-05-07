@@ -1,3 +1,10 @@
+/**
+ * LocationFragment.kt
+ *
+ * Handles UI fuctionalities and connection to bindings and view models.
+ * Handles the events related to updating the Google Map preview and
+ * updating the location on Firebase Realtime Database.
+ **/
 package com.example.texasfusionpublic.ui.info
 
 import android.location.Address
@@ -51,6 +58,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
         mapView?.onCreate(savedInstanceState)
         mapView?.getMapAsync(this)
 
+        // Update the map preview after the enter button is pressed on keyboard
         binding.address.setOnKeyListener(View.OnKeyListener { _, keyCode, keyevent ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && keyevent.action == KeyEvent.ACTION_UP) {
                 updateMap(binding.address.text.toString())
@@ -59,6 +67,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
             false
         })
 
+        // Handle the apply button click
         binding.btnApply.setOnClickListener{
             if(!binding.address.text.toString().isNullOrEmpty())
                 updateLocation(binding.address.text.toString())
@@ -69,6 +78,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
         return binding.root
     }
 
+    // Update the marker on the map preview
     private fun updateMap(addr: String){
         val coder = Geocoder(context)
         val address: List<Address>?
@@ -83,6 +93,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    // Apply the location change with write to Firebase Realtime Database
     private fun updateLocation(addr: String){
         val coder = Geocoder(context)
         var address: MutableList<Address> = mutableListOf()
@@ -104,6 +115,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
         activity?.findNavController(R.id.nav_host_fragment)?.navigate(R.id.navigation_login_menu)
     }
 
+    // Setup the map preview on load
     override fun onMapReady(googleMap: GoogleMap?) {
         val marker = MarkerOptions().position(LatLng)
 
@@ -115,6 +127,7 @@ class LocationFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    // Functions below are required for Google Maps preview
     override fun onResume() {
         super.onResume()
         mapView?.onResume()

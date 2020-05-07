@@ -1,3 +1,9 @@
+/**
+ * OrderAdapter.kt
+ *
+ * Handles displaying a list of items in a recycler view.
+ * Displays the user's items in their cart.
+ **/
 package com.example.texasfusionpublic.ui.order
 
 import android.view.LayoutInflater
@@ -15,14 +21,18 @@ class OrderAdapter(
     val decClick: (MenuRepository.MenuItem) -> Unit
 ) : RecyclerView.Adapter<OrderAdapter.ItemViewHolder>(){
 
+    // Specifies the reusable layout to display the information
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         ItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.order_item, parent, false))
 
+    // Specifies binding to display the item's information and function to call when clicked/tapped
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) =
         holder.bind(list[position], itemClick, incClick, decClick)
 
+    // Used to access each object in the list
     override fun getItemCount(): Int = list.count()
 
+    // This class corresponds to the layout specified in the onCreateViewHolder function
     class ItemViewHolder(item: View) : RecyclerView.ViewHolder(item){
         val name = item.itemName
         val price = item.price

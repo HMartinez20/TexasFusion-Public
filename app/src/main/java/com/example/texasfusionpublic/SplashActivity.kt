@@ -1,3 +1,9 @@
+/**
+ * SplashActivity.kt
+ *
+ * The first activity to load when the application is executed.
+ * Allows the application to load the menu items before the user can view the menu.
+ **/
 package com.example.texasfusionpublic
 
 import android.content.Intent
@@ -20,11 +26,13 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         repo = MenuRepository.getInstance()
 
+        // Declare reference to a Square account
         val client: SquareClient = SquareClient.Builder()
             .environment(Environment.SANDBOX)
             .accessToken("YOUR TOKEN")
             .build()
 
+        // Call Square Catalog API and retrieve menu items
         val api: CatalogApi = client.catalogApi
         api.listCatalogAsync(null, "CATEGORY,ITEM,ITEM_VARIATION,IMAGE,MODIFIER").thenAccept {
             Log.i("SplashActivity","successfully retrieved catalog")

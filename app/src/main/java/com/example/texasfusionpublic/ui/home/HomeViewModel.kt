@@ -1,18 +1,18 @@
+/**
+ * HomeViewModel.kt
+ *
+ * Handles business functions and calculations.
+ * Parses data related to the hours of operation to dislpay on the home page.
+ **/
 package com.example.texasfusionpublic.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.lang.StringBuilder
 import java.util.*
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
-
+    // Parse data to separate days of the week
     fun sortData(data: String): String {
         val schedule = mutableMapOf<String,String>()
         data.removePrefix("{").removeSuffix("}").split(", ").forEach {
@@ -30,6 +30,7 @@ class HomeViewModel : ViewModel() {
         return scheduleString.toString()
     }
 
+    // Retrieve the system's current day of the week
     fun getTodaysSchedule(data: String): String{
         val dayOfWeek = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
         var day: String = ""

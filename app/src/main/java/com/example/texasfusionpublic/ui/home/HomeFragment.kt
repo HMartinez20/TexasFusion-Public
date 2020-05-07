@@ -1,3 +1,10 @@
+/**
+ * HomeFragment.kt
+ *
+ * Handles UI fuctionalities and connection to bindings and view models.
+ * Displays the hours of operation and truck location. Handles updates
+ * to this information.
+ **/
 package com.example.texasfusionpublic.ui.home
 
 import android.os.Bundle
@@ -50,7 +57,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mapView = binding.map
         mapView?.onCreate(savedInstanceState)
 
+        // Set function to call when arrow is clicked/tapped
         binding.btnHours.setOnClickListener{ showMoreHours(binding.moreHours) }
+
+        // Listens for changes in Firebase Realtime Database for location and schedule
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 dataSnapshot.children.forEach{
@@ -73,6 +83,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         return binding.root
     }
 
+    // Update map preview
     private fun updateMap(lat : String, lng: String){
         try {
             mLatLng = LatLng(lat.toDouble(), lng.toDouble())
@@ -82,6 +93,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    // Display availability for each day of the week
     fun showMoreHours(view: View){
         if(view.visibility == View.VISIBLE)
             view.visibility = View.GONE
@@ -89,6 +101,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             view.visibility = View.VISIBLE
     }
 
+    // Setup Google Map preview
     override fun onMapReady(googleMap: GoogleMap?) {
         val marker = MarkerOptions().position(mLatLng).title("Texas Fusion")
 
@@ -99,11 +112,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-    private fun updateSchedule(schedule: MutableMap<String,String>){
-        Log.i("HomeFragment", "schedule: $schedule")
-
-    }
-
+    // The functions below are required to handle initialization and updates to map preview
     override fun onResume() {
         super.onResume()
         mapView?.onResume()

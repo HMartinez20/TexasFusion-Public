@@ -1,3 +1,10 @@
+/**
+ * HoursFragment.kt
+ *
+ * Handles UI fuctionalities and connection to bindings and view models.
+ * Allows admin to edit hours for a selected day of the week and apply changes
+ * in Firebase Realtime Database.
+ **/
 package com.example.texasfusionpublic.ui.info
 
 import android.os.Bundle
@@ -49,6 +56,7 @@ class HoursFragment : Fragment() {
             ViewModelProviders.of(this).get(InfoViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_hours,container,false)
 
+        // Listens to changes in Firebase Realtime Database related to the hours of operation and update recycler view
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 dataSnapshot.children.forEach{
@@ -67,12 +75,14 @@ class HoursFragment : Fragment() {
             }
         })
 
+        // Show time picker for given day of the week
         binding.btnApply.setOnClickListener{
             binding.timeEditor.visibility = View.GONE
             binding.recyclerView.visibility = View.VISIBLE
             writeToDB()
         }
 
+        // Show days of the week
         binding.btnCancel.setOnClickListener{
             binding.timeEditor.visibility = View.GONE
             binding.recyclerView.visibility = View.VISIBLE
@@ -81,6 +91,7 @@ class HoursFragment : Fragment() {
         return binding.root
     }
 
+    // Show time picker and handle actions related to this including choosing to edit the start or end time
     private fun editTime(schedule: Schedule){
         binding.recyclerView.apply{
             visibility = View.GONE
@@ -105,6 +116,7 @@ class HoursFragment : Fragment() {
         }
     }
 
+    // Return integer to display a certain hour and minute on time picker
     private fun get24HrFormat(hour: String, abbr: String): Int{
         if(abbr.contains("a")){
             if(hour.toInt() == 12)

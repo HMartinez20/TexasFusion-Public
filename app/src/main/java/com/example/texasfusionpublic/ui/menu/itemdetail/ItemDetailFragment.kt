@@ -1,3 +1,10 @@
+/**
+ * ItemDetailFragment.kt
+ *
+ * Handles UI fuctionalities and connection to bindings and view models.
+ * Populates an item's details after a selection is made on the Menu page.
+ * Handles click to an item's variation(s).
+ **/
 package com.example.texasfusionpublic.ui.menu.itemdetail
 
 import android.app.AlertDialog
@@ -31,6 +38,7 @@ class ItemDetailFragment: Fragment(){
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_itemdetail, container, false)
         repo = MenuRepository.getInstance()
 
+        // Retrieves the menu items from the repository
         repo.currentItem?.let {
             binding.item.text = it.item.itemData.name
             binding.description.text = it.item.itemData.description
@@ -45,6 +53,9 @@ class ItemDetailFragment: Fragment(){
         return binding.root
     }
 
+    // A popup that appears when a variation is selected.
+    // Item is added to cart when "Order" button is pressed, otherwise the popup is closed.
+    // If no toppings are included with the item, item is added to cart.
     private fun chooseOptions(item: CatalogObject){
         repo.currentItem?.let{ currItem ->
             if (!currItem.modifiers.isNullOrEmpty()){
@@ -77,6 +88,7 @@ class ItemDetailFragment: Fragment(){
         }
     }
 
+    // Adds the specific menu item (an item's variation) to the user's cart
     private fun addToOrder(additem: CatalogObject, mods: List<String>) {
         val match = repo.menuItems?.let { obj ->
             obj.first { it.item.id == additem.itemVariationData.itemId }

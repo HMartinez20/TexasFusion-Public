@@ -1,16 +1,25 @@
+/**
+ * MenuRepository.kt
+ *
+ * Holds a copy of the menu items retrieved from the Square Catalog API.
+ * Holds information that can be shared with multiple fragments.
+ **/
 package com.example.texasfusionpublic
 
 import com.squareup.square.models.CatalogObject
 
-class MenuRepository() {
+class MenuRepository {
 
     var menuItems: List<MenuItem>? = listOf()
     var currentItem: MenuItem? = null
     fun setMenu(list: List<CatalogObject>?){
         menuItems = parseCatalog(list)
     }
+
+    // This holds a session's cart items
     var cart = mutableListOf<MenuItem>()
 
+    // Object class that can make references to menu items more manageable
     data class MenuItem(
         val category: String,
         val item: CatalogObject,
@@ -20,6 +29,7 @@ class MenuRepository() {
         val count: Int
     )
 
+    // Parses data retrieved from the Square Catalog API into a list of MenuItem objects
     private fun parseCatalog(list: List<CatalogObject>?): List<MenuItem>{
         val catalog: MutableList<MenuItem> = mutableListOf()
         list?.let {
@@ -53,10 +63,13 @@ class MenuRepository() {
         return catalog
     }
 
+    // Setter function for a menu item selected on the Menu screen
     fun updateSelectedItem(item: MenuItem){
         currentItem = item
     }
 
+    // Creates a Singleton (single) saved instance of this repository to prevent
+    // the cart or menu items from being rewritten
     companion object {
         @Volatile private var instance: MenuRepository? = null
 

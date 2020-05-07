@@ -1,3 +1,10 @@
+/**
+ * OrderFragment.kt
+ *
+ * Handles UI functionalities and connection to bindings and view models.
+ * This fragment handles the checkout process including editing items
+ * in a user's cart and adding up the total for those items.
+ **/
 package com.example.texasfusionpublic.ui.order
 
 import android.app.AlertDialog
@@ -24,8 +31,6 @@ class OrderFragment : Fragment() {
     private lateinit var binding : FragmentOrderBinding
     private lateinit var repo: MenuRepository
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,6 +41,7 @@ class OrderFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_order, container, false)
         repo = MenuRepository.getInstance()
 
+        // Retrieves items in the user's cart
         repo.cart.let{ list ->
             val recycler: RecyclerView = binding.recycler
             recycler.apply {
@@ -61,6 +67,7 @@ class OrderFragment : Fragment() {
         return binding.root
     }
 
+    // Calculates the total according to the items in the user's cart
     private fun updateTotal(list: MutableList<MenuRepository.MenuItem>): String{
         var price: Long = 0
         list.forEach {item ->
@@ -76,10 +83,10 @@ class OrderFragment : Fragment() {
         return "$${df.format(price.div(100))}"
     }
 
-    private fun editItem(item: MenuRepository.MenuItem){
+    // Future functionality: Editing the toppings selected for the item variation
+    private fun editItem(item: MenuRepository.MenuItem){}
 
-    }
-
+    // Handles the button click/tap on the checkout button
     private fun checkout(total: String){
         val builder = AlertDialog.Builder(this.activity)
         builder.setTitle("Order placed!")

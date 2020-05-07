@@ -1,14 +1,20 @@
+/**
+ * InfoViewModel.kt
+ *
+ * Handles business functions and calculations.
+ * Parses data by day of the week.
+ **/
 package com.example.texasfusionpublic.ui.info
 
 import androidx.lifecycle.ViewModel
 
 class InfoViewModel : ViewModel(){
+
+    // Parses and sorts data according to the day of the week
     fun sortData(data: String): List<HoursFragment.Schedule> {
-//        val schedule = mutableMapOf<String,String>()
         val scheduleList = MutableList(7){HoursFragment.Schedule("","", "", "", "")}
 
         data.removePrefix("{").removeSuffix("}").split(", ").forEach {
-//            schedule.put(it.substringBefore("="), it.substringAfter("="))
             var dayOfWeek = 0
             when(it.substringBefore("=")) {
                "Sunday" -> dayOfWeek = 0

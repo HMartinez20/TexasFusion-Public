@@ -1,3 +1,9 @@
+/**
+ * LoginMenuFragment.kt
+ *
+ * Handles UI fuctionalities and connection to bindings and view models.
+ * Handles the button actions on the Admin Menu screen.
+ **/
 package com.example.texasfusionpublic.ui.login
 
 import android.os.Bundle
@@ -28,9 +34,6 @@ class LoginMenuFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
-        auth.currentUser?.let {
-            // Access user info
-        }
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +54,7 @@ class LoginMenuFragment : Fragment() {
         return binding.root
     }
 
+    // Handles navigation to other fragments
     private fun loadFrag(frag: String){
         when(frag){
             FRAG_LOCATION ->
