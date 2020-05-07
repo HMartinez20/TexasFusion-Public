@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_order.xml
+
+    Describes the layout for the Order page.
+    Includes a recycler view to list items in a user's cart, a total for the cart items and a checkout button.
+-->
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">

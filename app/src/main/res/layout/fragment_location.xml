@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_location.xml
+
+    Describes the layout for the Edit Truck Location screen.
+    Includes an editable text box, Google Map preview and apply button.
+-->
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">

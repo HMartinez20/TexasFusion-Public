@@ -1,3 +1,8 @@
+<!--
+    google_maps_api.xml
+    
+    String value of Google Maps Key.
+-->
 <resources>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">YOUR KEY</string>
 </resources>

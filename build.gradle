@@ -1,3 +1,9 @@
+/**
+ build.gradle (Project: Texas Fusion)
+
+ Higher-level dependencies for the application.
+ Lists sources of dependencies.
+ **/
 ext {
     var = 24
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.

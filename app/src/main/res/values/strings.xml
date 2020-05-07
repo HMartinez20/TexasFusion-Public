@@ -1,3 +1,9 @@
+<!--
+    strings.xml
+
+    Reusable strings.
+    Accessed with value "@string/<string name>"
+-->
 <resources>
     <string name="app_name">Texas Fusion</string>
     <string name="title_home">Truck</string>

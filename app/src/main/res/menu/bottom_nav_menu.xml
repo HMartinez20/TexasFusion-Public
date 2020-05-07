@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    bottom_nav_menu.xml
+
+    Describes the navigation bar at the bottom of the screen while the application is open.
+    Lists buttons available in this toolbar.
+-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_itemdetail.xml
+
+    Describes the layout for the Item Detail screen.
+    Includes an image, item name, item description and a recycler view to list item's variations.
+-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">

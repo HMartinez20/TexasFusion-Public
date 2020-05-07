@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_tickets.xml
+
+    Describes the layout for the Ticket Page.
+    Includes a recycler view to list order tickets.
+    This will be used in the future.
+-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tool="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_login_menu.xml
+
+    Describes the layout for the Admin Menu page.
+    Includes a menu to allow an admin to edit the truck location or hours of operation.
+    Also includes a logout button.
+-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -40,8 +47,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
-            android:drawableStart="@drawable/ic_stars_white_24dp"
+            android:drawableStart="@drawable/ic_stars_black_24dp"
             android:drawablePadding="10dp"
+            android:drawableTint="@android:color/white"
             android:padding="10dp"
             android:text="Hours of Operation"
             android:textColor="@android:color/white"
